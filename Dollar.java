@@ -8,16 +8,15 @@ public class Dollar extends TestCase{
    Dollar(int amount) {
       this.amount= amount;
    }
-   Dollar times(int multiplier) {
-      amount= amount * multiplier;
-      return this;
+    Money times(int multiplier)  {
+      return new Dollar(amount * multiplier);
    }
 
-   public void testMultiplication() {
-   	Dollar five = new Dollar(5);
-   	assertEquals(new Dollar(10), five.times(2));
-  	assertEquals(new Dollar(15), five.times(3));
-   }    
+public void testMultiplication() {
+   Money five = Money.dollar(5);
+   assertEquals(Money.dollar(10), five.times(2));
+   assertEquals(Money.dollar(15), five.times(3));
+}
  
    public void testEquality() {
    	assertTrue(new Dollar(5).equals(new Dollar(5)));
